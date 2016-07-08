@@ -1,0 +1,89 @@
+{
+  "configurations": [
+    {
+      "hive-site": {
+        "javax.jdo.option.ConnectionUserName": "hive",
+        "javax.jdo.option.ConnectionPassword": "hive"
+      }
+    }
+  ],
+  "host_groups": [
+    {
+      "name": "host_group_slave_1",
+      "configurations": [],
+      "components": [
+        {
+          "name": "NODEMANAGER"
+        },
+        {
+          "name": "METRICS_MONITOR"
+        },
+        {
+          "name": "DATANODE"
+        },
+        {
+          "name": "ZOOKEEPER_CLIENT"
+        },
+        {
+          "name": "HDFS_CLIENT"
+        },
+        {
+          "name": "YARN_CLIENT"
+        },
+        {
+          "name": "MAPREDUCE2_CLIENT"
+        }
+      ],
+      "cardinality": "1"
+    },
+    {
+      "name": "host_group_master_1",
+      "configurations": [],
+      "components": [
+        {
+          "name": "ZOOKEEPER_SERVER"
+        },
+        {
+          "name": "HISTORYSERVER"
+        },
+        {
+          "name": "NAMENODE"
+        },
+        {
+          "name": "HDFS_CLIENT"
+        },
+        {
+          "name": "YARN_CLIENT"
+        },
+        {
+          "name": "METRICS_MONITOR"
+        },
+        {
+          "name": "MAPREDUCE2_CLIENT"
+        },
+        {
+          "name": "APP_TIMELINE_SERVER"
+        },
+        {
+          "name": "SECONDARY_NAMENODE"
+        },
+        {
+          "name": "ZOOKEEPER_CLIENT"
+        },
+        {
+          "name": "RESOURCEMANAGER"
+        },
+        {
+          "name": "METRICS_COLLECTOR"
+        }
+      ],
+      "cardinality": "1"
+    }
+  ],
+  "Blueprints": {
+    "blueprint_name": "hdp-small-default",
+    "stack_name": "HDP",
+    "stack_version": "2.4"
+  }
+}
+                    
