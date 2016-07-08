@@ -25,7 +25,6 @@ MR_EXAMPLES_JAR=/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-exampl
 # SIZE=1G
 # ROWS=10000000
 
-DFS_BLOCKSIZE=${DFS_BLOCKSIZE:-256}   # was 512 
 
 
 OUTPUT=/data/sandbox/poc/teragen/${SIZE}-terasort-input
