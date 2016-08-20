@@ -15,6 +15,20 @@ MR_EXAMPLES_JAR=/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-exampl
 SIZE=1T
 #SIZE=1G
 #SIZE=10G
+
+
+LOGDIR=logs
+
+if [ ! -d "$LOGDIR" ]
+then
+    mkdir ./$LOGDIR
+fi
+
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+RESULTSFILE="./$LOGDIR/teravalidate_results_$DATE"
+
+
 OUTPUT=/data/sandbox/poc/teragen/${SIZE}-terasort-output
 REPORT=/data/sandbox/poc/teragen/${SIZE}-terasort-report
 
@@ -37,4 +51,4 @@ time hadoop jar $MR_EXAMPLES_JAR teravalidate \
 -Dmapreduce.task.io.sort.mb=1 \
 -Dmapred.map.tasks=185 \
 -Dmapred.reduce.tasks=185 \
-${OUTPUT} ${REPORT}
+${OUTPUT} ${REPORT} >> $RESULTSFILE 2>&1

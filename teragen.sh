@@ -26,6 +26,17 @@ MR_EXAMPLES_JAR=/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-exampl
 # ROWS=10000000
 
 
+LOGDIR=logs
+
+if [ ! -d "$LOGDIR" ]
+then
+    mkdir ./$LOGDIR
+fi
+
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+RESULTSFILE="./$LOGDIR/teragen_results_$DATE"
+
 
 OUTPUT=/data/sandbox/poc/teragen/${SIZE}-terasort-input
 
@@ -56,7 +67,7 @@ time hadoop jar $MR_EXAMPLES_JAR teragen \
 -Dyarn.app.mapreduce.am.command.opts=-Xmx768m \
 -Dyarn.app.mapreduce.am.resource.mb=1024 \
 -Dmapred.map.tasks=92 \
-${ROWS} ${OUTPUT}
+${ROWS} ${OUTPUT} >> $RESULTSFILE 2>&1
  
 #-Dmapreduce.map.log.level=TRACE \
 #-Dmapreduce.reduce.log.level=TRACE \

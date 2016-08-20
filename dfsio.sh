@@ -12,10 +12,20 @@ DFSIO_JAR=/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-client-jobcl
 FILES=10
 FILESIZE=100000
 
+LOGDIR=logs
 
-DFSIO_WRITE_OUTPUT_FILE=DFSIO_write_results.txt
+if [ ! -d "$LOGDIR" ]
+then
+    mkdir ./$LOGDIR
+fi
 
-DFSIO_READ_OUTPUT_FILE=DFSIO_read_results.txt
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+
+DFSIO_WRITE_OUTPUT_FILE="./$LOGDIR/dfsio_write_results.txt_$DATE"
+
+DFSIO_READ_OUTPUT_FILE="./$LOGDIR/dfsio_read_results.txt_$DATE"
+
 
 
 echo Running DFSIO CLEAN job

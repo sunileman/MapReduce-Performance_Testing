@@ -18,6 +18,19 @@ SIZE=1T
 #INPUT=/${SIZE}-terasort-input
 #OUTPUT=/${SIZE}-terasort-output
 
+
+LOGDIR=logs
+
+if [ ! -d "$LOGDIR" ]
+then
+    mkdir ./$LOGDIR
+fi
+
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+RESULTSFILE="./$LOGDIR/terasort_results_$DATE"
+
+
 INPUT=/data/sandbox/poc/teragen/${SIZE}-terasort-input
 OUTPUT=/data/sandbox/poc/teragen/${SIZE}-terasort-output
 
@@ -49,4 +62,4 @@ time hadoop jar $MR_EXAMPLES_JAR terasort \
 -Dyarn.app.mapreduce.am.resource.mb=1024 \
 -Dmapred.reduce.tasks=92 \
 -Dmapreduce.terasort.output.replication=1 \
-${INPUT} ${OUTPUT}
+${INPUT} ${OUTPUT} >> $RESULTSFILE 2>&1
