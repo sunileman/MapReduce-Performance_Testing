@@ -20,7 +20,7 @@ DFSIO_READ_OUTPUT_FILE=DFSIO_read_results.txt
 
 echo Running DFSIO CLEAN job
 echo =============================================================== 
-$ hadoop jar $DFSIO_JAR TestDFSIO -clean
+yarn jar $DFSIO_JAR TestDFSIO -clean
 
 
 
