@@ -10,13 +10,14 @@ trap "" HUP
 #MR_EXAMPLES_JAR=/usr/hdp/2.2.0.0-2041/hadoop-mapreduce/hadoop-mapreduce-examples.jar
 MR_EXAMPLES_JAR=/opt/cloudera/parcels/CDH/jars/hadoop-mapreduce-examples-3.1.1.7.2.2.2-1.jar
 
+
 #SIZE=500G
 #ROWS=5000000000
 
 #SIZE=100G
 #ROWS=1000000000
 
- SIZE=100T
+ SIZE=1T
  ROWS=10000000000
 
 # SIZE=10G
